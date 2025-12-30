@@ -154,7 +154,9 @@ Some tips for ``main.py`` usage:
   This can help keep the structure of your application clear. It also makes
   it easy to install multiple applications on a board and switch among them.
 - It's good practice when writing robust apps to wrap code in ``main.py`` with an
-  exception handler to take appropriate action if the code crashes. For example::
+  exception handler to take appropriate action if the code crashes.
+  Otherwise MicroPython will drop to the REPL following any crash or if main exits.
+  For example::
 
         import machine, sys
         import my_app
@@ -165,13 +167,9 @@ Some tips for ``main.py`` usage:
             sys.print_exception(e)
 
         # Following a normal Exception or main() exiting, reset the board.
-        # Following a non-Exception error such as KeyboardInterrupt (Ctrl-C),
-        # this code will drop to a REPL. Place machine.reset() in a finally
-        # block to always reset, instead.
+        # Following a non-Exception error such as KeyboardInterrupt (Ctrl-C), this code will drop to a REPL.
+        # Place `machine.reset()` in a `finally` block to always reset, instead.
         machine.reset()
-
-  Otherwise MicroPython will drop to the REPL following any crash or if main
-  exits (see below).
 
 - Any global variables that were set in ``boot.py`` will still be set in the
   global context of ``main.py``.
