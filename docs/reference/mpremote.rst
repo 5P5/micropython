@@ -496,7 +496,7 @@ This is typically:
 - ``$HOME/.config/mpremote/config.py``
 - ``$env:LOCALAPPDATA/mpremote/config.py``
 
-The ``config.py``` file should define a dictionary named ``commands``. The keys of this dictionary are the shortcuts
+The ``config.py`` file should define a dictionary named ``commands``. The keys of this dictionary are the shortcuts
 and the values are either a string or a list-of-strings:
 
 .. code-block:: python3
