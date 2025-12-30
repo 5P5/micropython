@@ -248,7 +248,7 @@ There are certain limitations in the current implementation of the native code e
 * If ``raise`` is used an argument must be supplied.
 * The background scheduler (see `micropython.schedule`) is not run during
   execution of native code.
-* On targets with thrteading and the GIL, the GIL is not released during
+* On targets with threading and the GIL, the GIL is not released during
   execution of native code.
 
 To mitigate the last two points, long running native functions should call
